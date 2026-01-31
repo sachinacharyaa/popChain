@@ -4,7 +4,7 @@ A decentralized application that lets event attendees mint Proof of Participatio
 
 ## Features
 
-- **Wallet Integration**: Connect with Phantom wallet for seamless authentication
+- **Wallet Integration**: Connect with Any wallet(Software itself detects on your system) for seamless authentication
 - **NFT Minting**: Mint unique PoP NFTs directly to your wallet
 - **On-Chain Proof**: Immutable, verifiable credentials on Solana blockchain
 - **Beautiful UI**: Modern, responsive design with smooth animations
