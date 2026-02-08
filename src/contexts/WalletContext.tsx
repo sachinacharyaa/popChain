@@ -226,9 +226,9 @@ export const WalletProvider: FC<Props> = ({ children }) => {
   useEffect(() => {
     if (!currentProvider) return
 
-    const handleAccountChange = (newPublicKey: PublicKey | null) => {
-      if (newPublicKey) {
-        setPublicKey(new PublicKey(newPublicKey.toString()))
+    const handleAccountChange = (newPublicKey: unknown) => {
+      if (newPublicKey && typeof newPublicKey === 'object' && 'toString' in newPublicKey) {
+        setPublicKey(new PublicKey((newPublicKey as PublicKey).toString()))
       } else {
         disconnect()
       }
