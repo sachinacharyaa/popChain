@@ -154,6 +154,23 @@ export const getMintedNFTs = (walletAddress: string) => {
   return allNFTs.filter((nft: { owner: string }) => nft.owner === walletAddress)
 }
 
+// Check if user has already claimed a specific event
+export const hasClaimedEvent = (walletAddress: string, eventId: string): boolean => {
+  const allNFTs = JSON.parse(localStorage.getItem('popchain_nfts') || '[]')
+  return allNFTs.some((nft: { owner: string; event: { id: string } }) => 
+    nft.owner === walletAddress && nft.event.id === eventId
+  )
+}
+
+// Get the transaction signature for a claimed event
+export const getClaimedEventSignature = (walletAddress: string, eventId: string): string | null => {
+  const allNFTs = JSON.parse(localStorage.getItem('popchain_nfts') || '[]')
+  const nft = allNFTs.find((nft: { owner: string; event: { id: string }; signature: string }) => 
+    nft.owner === walletAddress && nft.event.id === eventId
+  )
+  return nft?.signature || null
+}
+
 // Utility to estimate mint cost
 export const estimateMintCost = async (connection: Connection): Promise<number> => {
   try {

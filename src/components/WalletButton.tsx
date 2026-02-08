@@ -76,16 +76,16 @@ export const WalletButton: FC = () => {
         <>
           {/* Backdrop */}
           <div 
-            className="fixed inset-0 z-40" 
+            className="fixed inset-0 z-40 bg-black/20" 
             onClick={() => setShowDropdown(false)}
           />
           
           {/* Menu */}
-          <div className="absolute right-0 top-full mt-2 w-64 bg-[#1e1e23]/98 border border-white/10 rounded-xl shadow-xl z-50 overflow-hidden backdrop-blur-xl">
-            {/* Wallet Info */}
-            <div className="px-4 py-4 border-b border-white/10 bg-gradient-to-r from-solana-purple/10 to-solana-green/10">
-              <div className="flex items-center gap-3 mb-2">
-                <div className="w-10 h-10 rounded-lg overflow-hidden ring-2 ring-white/20">
+          <div className="absolute right-0 top-full mt-2 w-72 bg-[#12121a] border border-white/10 rounded-2xl shadow-2xl shadow-black/50 z-50 overflow-hidden">
+            {/* Wallet Info Header */}
+            <div className="px-4 py-4 border-b border-white/10 bg-gradient-to-r from-solana-purple/20 to-solana-green/20">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-12 h-12 rounded-xl overflow-hidden ring-2 ring-solana-purple/50 shadow-lg">
                   <img 
                     src={avatarSrc} 
                     alt="Wallet Avatar" 
@@ -93,20 +93,25 @@ export const WalletButton: FC = () => {
                   />
                 </div>
                 <div>
-                  <span className="text-sm font-semibold text-white">{walletName}</span>
-                  <p className="text-xs text-solana-green">Connected</p>
+                  <span className="text-base font-semibold text-white">{walletName}</span>
+                  <div className="flex items-center gap-1.5">
+                    <span className="w-2 h-2 rounded-full bg-solana-green animate-pulse"></span>
+                    <p className="text-xs text-solana-green font-medium">Connected</p>
+                  </div>
                 </div>
               </div>
-              <p className="text-xs text-white/50 font-mono break-all">
-                {publicKey?.toString()}
-              </p>
+              <div className="bg-black/30 rounded-lg px-3 py-2">
+                <p className="text-xs text-white/60 font-mono break-all">
+                  {publicKey?.toString()}
+                </p>
+              </div>
             </div>
 
             {/* Actions */}
-            <div className="p-2">
+            <div className="p-2 bg-[#12121a]">
               <button
                 onClick={handleCopyAddress}
-                className="w-full flex items-center gap-3 px-3 py-2.5 text-sm text-white/80 hover:text-white hover:bg-white/10 rounded-lg transition-colors"
+                className="w-full flex items-center gap-3 px-4 py-3 text-sm text-white/80 hover:text-white hover:bg-white/10 rounded-xl transition-colors"
               >
                 {copied ? (
                   <Check className="w-4 h-4 text-solana-green" />
@@ -121,17 +126,17 @@ export const WalletButton: FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setShowDropdown(false)}
-                className="w-full flex items-center gap-3 px-3 py-2.5 text-sm text-white/80 hover:text-white hover:bg-white/10 rounded-lg transition-colors"
+                className="w-full flex items-center gap-3 px-4 py-3 text-sm text-white/80 hover:text-white hover:bg-white/10 rounded-xl transition-colors"
               >
                 <ExternalLink className="w-4 h-4" />
                 View on Explorer
               </a>
 
-              <div className="my-1 border-t border-white/10" />
+              <div className="my-2 border-t border-white/10" />
               
               <button
                 onClick={handleDisconnect}
-                className="w-full flex items-center gap-3 px-3 py-2.5 text-sm text-red-400 hover:text-red-300 hover:bg-red-500/10 rounded-lg transition-colors"
+                className="w-full flex items-center gap-3 px-4 py-3 text-sm text-red-400 hover:text-red-300 hover:bg-red-500/10 rounded-xl transition-colors"
               >
                 <LogOut className="w-4 h-4" />
                 Disconnect

@@ -1,4 +1,5 @@
-import { FC } from 'react'
+import { FC, useEffect } from 'react'
+import { createPortal } from 'react-dom'
 import { useWallet } from '../contexts/WalletContext'
 import { X, Loader2, AlertCircle, ExternalLink } from 'lucide-react'
 import toast from 'react-hot-toast'
@@ -10,6 +11,29 @@ interface Props {
 
 export const WalletModal: FC<Props> = ({ isOpen, onClose }) => {
   const { availableWallets, connect, connecting } = useWallet()
+
+  // Lock body scroll when modal is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [isOpen])
+
+  // Handle escape key
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isOpen) {
+        onClose()
+      }
+    }
+    window.addEventListener('keydown', handleEscape)
+    return () => window.removeEventListener('keydown', handleEscape)
+  }, [isOpen, onClose])
 
   if (!isOpen) return null
 
@@ -24,18 +48,18 @@ export const WalletModal: FC<Props> = ({ isOpen, onClose }) => {
     }
   }
 
-  return (
-    <>
+  const modalContent = (
+    <div className="fixed inset-0 z-[9999]">
       {/* Backdrop */}
       <div 
-        className="fixed inset-0 bg-black/70 backdrop-blur-sm z-50"
+        className="absolute inset-0 bg-black/80 backdrop-blur-sm"
         onClick={onClose}
       />
       
-      {/* Modal */}
-      <div className="fixed inset-0 flex items-center justify-center z-50 p-4 pointer-events-none">
+      {/* Modal Container - ensures perfect centering */}
+      <div className="absolute inset-0 flex items-center justify-center p-4 overflow-y-auto">
         <div 
-          className="bg-[#1a1a1f] border border-white/10 rounded-2xl w-full max-w-md shadow-2xl pointer-events-auto"
+          className="relative bg-[#1a1a1f] border border-white/10 rounded-2xl w-full max-w-md shadow-2xl my-auto"
           onClick={(e) => e.stopPropagation()}
         >
           {/* Header */}
@@ -130,6 +154,9 @@ export const WalletModal: FC<Props> = ({ isOpen, onClose }) => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   )
+
+  // Use portal to render at document body level
+  return createPortal(modalContent, document.body)
 }

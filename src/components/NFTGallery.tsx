@@ -130,6 +130,7 @@ export const NFTGallery: FC = () => {
     hackathon: 'from-solana-purple to-pink-500',
     meetup: 'from-solana-green to-emerald-500',
     conference: 'from-orange-500 to-amber-500',
+    bootcamp: 'from-red-500 to-orange-500',
   }
 
   return (
