@@ -1,5 +1,6 @@
 import { FC } from 'react'
 import { Toaster } from 'react-hot-toast'
+import { Analytics } from '@vercel/analytics/react'
 import { WalletProvider } from './contexts/WalletContext'
 import { EventsProvider, useEvents } from './contexts/EventsContext'
 import { Header } from './components/Header'
@@ -117,6 +118,9 @@ const App: FC = () => {
 
           {/* Footer */}
           <Footer />
+
+          {/* Vercel Analytics */}
+          <Analytics />
         </div>
       </EventsProvider>
     </WalletProvider>
