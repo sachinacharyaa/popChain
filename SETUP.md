@@ -1,99 +1,122 @@
-⚙️ Setup Instructions
+## ⚙️ Setup Instructions
 
 Follow these steps to run the project locally.
 
-1️⃣ Prerequisites
+---
 
-Make sure you have installed:
+### 1️⃣ Prerequisites
 
-Node.js (v18 or higher recommended)
+Make sure the following are installed on your system:
 
-npm or yarn
+- **Node.js** (v18 or higher recommended)
+- **npm** or **yarn**
+- **Git**
+- **Phantom Wallet** browser extension
 
-Phantom Wallet browser extension
+---
 
-Git
+### 2️⃣ Clone the Repository
 
-2️⃣ Clone the Repository
+```bash
 git clone https://github.com/your-username/proof-of-registration.git
 cd proof-of-registration
-3️⃣ Install Dependencies
+```
 
-Using npm:
+---
 
+### 3️⃣ Install Dependencies
+
+Using **npm**:
+
+```bash
 npm install
+```
 
-Or using yarn:
+Or using **yarn**:
 
+```bash
 yarn install
+```
 
-4️⃣ Configure Environment Variables
+---
 
-Create a .env file in the root directory.
+### 4️⃣ Configure Environment Variables
+
+Create a `.env` file in the root directory.
 
 Example:
 
+```env
 VITE_SOLANA_NETWORK=devnet
 VITE_RPC_URL=https://api.devnet.solana.com
+```
 
-You may configure:
+You can configure:
 
-Devnet (testing)
+- **Devnet** → Testing
+- **Testnet** → Staging
+- **Mainnet** → Production
 
-Testnet
+---
 
-Mainnet (production)
+### 5️⃣ Start Development Server
 
-5️⃣ Start Development Server
+```bash
 npm run dev
+```
 
 App will run on:
 
+```
 http://localhost:5173
+```
 
-6️⃣ Connect Wallet
+---
 
-Open the app in browser
+### 6️⃣ Connect Wallet
 
-Click Connect Wallet
+1. Open the app in your browser
+2. Click **Connect Wallet**
+3. Select **Phantom**
+4. Approve the connection
 
-Select Phantom
+> ⚠️ Ensure Phantom is set to the same network (Devnet/Mainnet).
 
-Approve connection
+---
 
-Make sure Phantom is set to the same network (Devnet/Mainnet).
+### 7️⃣ Mint Test Registration NFT
 
-7️⃣ Mint Test NFT (Devnet)
+- Register for an event
+- Approve the transaction
+- Pay Devnet SOL fee
+- NFT will appear in wallet
+- Verify via Solana Explorer
 
-Register for an event
+---
 
-Approve transaction
+### 8️⃣ Build for Production
 
-Pay devnet SOL fee
-
-View NFT in wallet
-
-Verify transaction on Solana Explorer
-
-8️⃣ Build for Production
+```bash
 npm run build
+```
 
-Preview build:
+Preview production build:
 
+```bash
 npm run preview
+```
 
-9️⃣ Deployment
+---
+
+### 9️⃣ Deployment
 
 You can deploy the frontend on:
 
-Vercel
+- **Vercel**
+- **Netlify**
+- **GitHub Pages**
+- **Cloudflare Pages**
 
-Netlify
+Make sure to add environment variables in deployment settings.
 
-GitHub Pages
-
-Cloudflare Pages
-
-Ensure environment variables are added in deployment settings.
-
-Built for Web3 Events • On‑Chain Identity • Verifiable Registrations 🚀
+---
