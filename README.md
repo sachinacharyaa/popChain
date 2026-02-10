@@ -283,24 +283,23 @@ By leveraging Solana NFTs, it creates secure, transparent, and wallet‑native i
 
 ---
 
-## 📎 License
+## For Setup Instruction
 
-MIT License (or specify your license)
+Visit https://github.com/sachinacharyaa/popChain/blob/main/SETUP.md 
 
----
+
 
 ## 🤝 Contributors
 
-* Project Builder: *Your Name*
+* Project Builder: Sachin Acharya
 * Tech Stack: Solana • React • Metaplex • Tailwind
 
 ---
 
 ## 🌐 Demo / Links
 
-* Live dApp: *(Add link)*
-* GitHub Repo: *(Add link)*
-* Explorer Collection: *(Add link)*
+* Live dApp: https://pop-chain.vercel.app/
+* GitHub Repo: https://github.com/sachinacharyaa/popChain
 
 ---
 
