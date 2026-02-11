@@ -238,31 +238,25 @@ Premium dashboards & analytics.
 
 ---
 
-## 📊 Judging Criteria Alignment
+## 📊Criteria Alignment
 
 ### Problem Clarity
-
-Addresses fake registrations & unverifiable tickets.
+-Addresses fake registrations & unverifiable tickets.
 
 ### Potential Impact
-
-Enables on‑chain event infrastructure.
+-Enables on‑chain event infrastructure.
 
 ### Business Case
-
-Scalable SaaS + mint revenue.
+-Scalable SaaS + mint revenue.
 
 ### UX
-
-Wallet‑native, transparent, simple.
+-Wallet‑native, transparent, simple.
 
 ### Technical Implementation
-
-Full‑stack Solana NFT dApp.
+-Full‑stack Solana NFT dApp.
 
 ### Completeness
-
-Functional MVP with mint + verification.
+-Functional MVP with mint + verification.
 
 ---
 
